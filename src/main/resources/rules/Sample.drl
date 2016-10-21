@@ -1,0 +1,68 @@
+package com.sample
+ 
+import com.sample.Message;
+import com.sample.TestModel;
+import com.sample.TestList;
+import java.util.ArrayList;  
+import java.util.List;  
+	 
+	 global List<String> testDroolsList;
+	 
+	rule "Rule 1"
+	salience 10
+	    when
+	        m : Message( status == Message.HELLO, myMessage : message )
+	    then
+	        //System.out.println( myMessage );
+	        m.setMessage( "Goodbye cruel world" );
+	        m.setStatus( Message.GOODBYE );     
+	        //update( m );
+	       
+	        testDroolsList.add(m.getMessage());
+	end
+	
+	rule "Rule 2"
+	salience 25
+	    when
+	      m :  Message( true, myMessage : message )
+	    then
+	        //System.out.println( myMessage +22);
+	        testDroolsList.add(m.getMessage());
+	end
+	
+	rule "Rule 3"
+	salience 53
+	    when
+	      m :  Message( true, myMessage : message )
+	    then
+	        //System.out.println( myMessage +33);
+	        testDroolsList.add(m.getMessage());
+	end
+	
+	rule "Rule 4"
+	salience 15
+	    when
+	      m :  Message( true, myMessage : message )
+	    then
+	        //System.out.println( myMessage +44);
+	        testDroolsList.add(m.getMessage());
+	end
+	
+	rule "Rule 5"
+	salience 63
+	    when
+	      t :  TestModel( testInteger == TestModel.TESTINTEGER1, myTestString : testString )
+	    then
+	        //System.out.println( myTestString +55);
+	        
+	        testDroolsList.add(myTestString);
+	end
+	
+	rule "Rule 6"
+	salience 61
+	    when
+	      t :  TestModel( testInteger1 == TestModel.TESTINTEGER2, myTestString : testString )
+	    then
+	       // System.out.println( myTestString +66);
+	        testDroolsList.add(myTestString);
+	end
