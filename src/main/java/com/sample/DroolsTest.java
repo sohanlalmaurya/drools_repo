@@ -1,7 +1,6 @@
 package com.sample;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.kie.api.KieServices;
@@ -24,20 +23,36 @@ public class DroolsTest {
             kSession.insert(drools.testMethod());
             //kSession.insert(drools.getTestModel(TestModel.TESTINTEGER1));
             kSession.insert(drools.getTestModel());
-            kSession.setGlobal("testDroolsList", new ArrayList<String>());
-
+           // kSession.setGlobal("testDroolsList", new ArrayList<String>());
+            kSession.setGlobal("docTypeList", new ArrayList<DocTypesModel>());
+            kSession.setGlobal("notRequied", false);
+            //kSession.setGlobal("docTypesModel", new DocTypesModel());
+            //demoAgendaGroup(kSession);
             int rules= kSession.fireAllRules();
             System.out.println(rules);
-           List<String> list=  (List<String>) kSession.getGlobal("testDroolsList");
-           for(String string:list){
-        	   System.out.println(string+" geting from list");
+           
+           List<DocTypesModel> docTypesModelList=  (List<DocTypesModel>) kSession.getGlobal("docTypeList");
+           for(DocTypesModel docTypesModel:docTypesModelList){
+        	   System.out.println("\n\n"+docTypesModel.getId());
+        	   System.out.println(docTypesModel.getName());
+        	   System.out.println(docTypesModel.getIsMandatory());
            }
+           System.out.println("\n\n docTypesModelList.size()="+docTypesModelList.size());
            
         } catch (Throwable t) {
             t.printStackTrace();
         }
     }
-    
+    public static void demoAgendaGroup(KieSession kSession)
+    {
+        kSession.getAgenda().getAgendaGroup("primary").setFocus();
+        DroolsTest drools= new DroolsTest();
+        kSession.insert(drools.testMethod());
+        kSession.insert(drools.getTestModel(TestModel.TESTINTEGER1));
+        kSession.insert(drools.getTestModel());
+       // kSession.getAgenda().getAgendaGroup("secondary").setFocus();
+        kSession.fireAllRules();             	
+    }
     private TestModel getTestModel(){
     	
     	TestModel testModel = new TestModel();

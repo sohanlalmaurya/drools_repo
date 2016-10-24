@@ -1,0 +1,15 @@
+package com.sample;
+import com.sample.Message;
+
+
+rule "Rule 10"
+	salience 70
+	    when
+	        m : Message( status == Message.HELLO, myMessage : message )
+	    then
+	        System.out.println( myMessage );
+	        //modify(m){  message="Goodbye cruel world", status=Message.GOODBYE };
+	       
+	       
+	        
+	end

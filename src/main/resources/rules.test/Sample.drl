@@ -1,0 +1,493 @@
+package com.sample
+ 
+import com.sample.Message;
+import com.sample.TestModel;
+import com.sample.TestList;
+import com.sample.DocTypes;
+import com.sample.DocTypesModel;
+import java.util.ArrayList;  
+import java.util.List;  
+	 
+	 global List<DocTypesModel> docTypeList;
+	 global Boolean notRequied;
+	rule "Owner Photograph"
+	salience 1000
+	    when
+	         // always true
+	    then
+	       DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_OWNER_PHOTO.getValue());
+	       docTypesModel.setName(DocTypes.DOC_OWNER_PHOTO.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "User Signature"
+	salience 990
+	    when
+	      // always true
+	    then
+	       DocTypesModel docTypesModel = new DocTypesModel();
+	   	   docTypesModel.setId(DocTypes.DOC_USER_SIGNATURE.getValue());
+	       docTypesModel.setName(DocTypes.DOC_USER_SIGNATURE.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "PAN Card"
+	salience 980
+	    when
+	      
+	    then
+	      DocTypesModel docTypesModel = new DocTypesModel(); 
+	       docTypesModel.setId(DocTypes.DOC_PAN_CARD.getValue());
+	       docTypesModel.setName(DocTypes.DOC_PAN_CARD.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Present Address Proof of Owner"
+	salience 970
+	    when
+	     // always true
+	    then
+	       DocTypesModel docTypesModel = new DocTypesModel(); 
+	       docTypesModel.setId(DocTypes.DOC_PRESENT_ADDRESS_PROOF.getValue());
+	       docTypesModel.setName(DocTypes.DOC_PRESENT_ADDRESS_PROOF.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Present Address Proof (Back View)"
+	salience 960
+	    when
+	      // always true
+	    then
+	      DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_PRESENT_ADDRESS_PROOF_BACKVIEW.getValue());
+	       docTypesModel.setName(DocTypes.DOC_PRESENT_ADDRESS_PROOF_BACKVIEW.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Photo ID Proof"
+	salience 950
+	    when
+	      // always true
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_PHOTO_ID_PROOF.getValue());
+	       docTypesModel.setName(DocTypes.DOC_PHOTO_ID_PROOF.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	
+	rule "Chassis No.  Distance View"
+	salience 940
+	    when
+	    
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_CHASSIS_NO_DISTANT_VIEW.getValue());
+	       docTypesModel.setName(DocTypes.DOC_CHASSIS_NO_DISTANT_VIEW.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Engine No."
+	salience 930
+	    when
+	     
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_ENGINE_NO.getValue());
+	       docTypesModel.setName(DocTypes.DOC_ENGINE_NO.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Invoice"
+	salience 920
+	    when
+	       // always true
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_INDIVIDUAL_INVOICE.getValue());
+	       docTypesModel.setName(DocTypes.DOC_INDIVIDUAL_INVOICE.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Insurance Policy Copy"
+	salience 910
+	    when
+	      // always true
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_INSURANCE_POLICY_COPY.getValue());
+	       docTypesModel.setName(DocTypes.DOC_INSURANCE_POLICY_COPY.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Vehicle Right side view"
+	salience 900
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VEHICLE_RIGHT.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VEHICLE_RIGHT.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Vehicle Front View"
+	salience 890
+	    when
+	      // always true
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VEHICLE_FRONT.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VEHICLE_FRONT.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Vehicle Rear side View"
+	salience 880
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VEHICLE_REAR.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VEHICLE_REAR.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Vehicle Left side View"
+	salience 870
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VEHICLE_LEFT.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VEHICLE_LEFT.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Vehicle Right side view after modification"
+	salience 860
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VEHICLE_RIGHT_MODIFICATION.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VEHICLE_RIGHT_MODIFICATION.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Vehicle Front side View after modification"
+	salience 850
+	    when
+	     
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VEHICLE_FRONT_MODIFICATION.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VEHICLE_FRONT_MODIFICATION.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Vehicle Rear side View after modification"
+	salience 840
+	    when
+	     
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VEHICLE_REAR_MODIFICATION.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VEHICLE_REAR_MODIFICATION.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Vehicle Left side View after modification"
+	salience 830
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VEHICLE_LEFT_MODIFICATION.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VEHICLE_LEFT_MODIFICATION.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Interior Vehicle Images 1"
+	salience 820
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_INTERIOR_VEHICLE_IMAGE_1.getValue());
+	       docTypesModel.setName(DocTypes.DOC_INTERIOR_VEHICLE_IMAGE_1.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Interior Vehicle Images 2"
+	salience 810
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_INTERIOR_VEHICLE_IMAGE_2.getValue());
+	       docTypesModel.setName(DocTypes.DOC_INTERIOR_VEHICLE_IMAGE_2.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Interior Vehicle Images 3"
+	salience 800
+	    when
+	     
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_INTERIOR_VEHICLE_IMAGE_3.getValue());
+	       docTypesModel.setName(DocTypes.DOC_INTERIOR_VEHICLE_IMAGE_3.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Foot board Image of  Vehicle"
+	salience 790
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_FOOT_BOARD_IMAGE_OF_VEHICLE.getValue());
+	       docTypesModel.setName(DocTypes.DOC_FOOT_BOARD_IMAGE_OF_VEHICLE.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Emergency Exit Image"
+	salience 780
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_EMERGENCY_EXIT_IMAGE.getValue());
+	       docTypesModel.setName(DocTypes.DOC_EMERGENCY_EXIT_IMAGE.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Letter from District Educational Officer"
+	salience 770
+	    when
+	     
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_LETTER_FROM_DISTRICT_EDUCATIONAL_OFFICER.getValue());
+	       docTypesModel.setName(DocTypes.DOC_LETTER_FROM_DISTRICT_EDUCATIONAL_OFFICER.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Registration certificate Educational Institute"
+	salience 760
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_REGISTRATION_CERTIFICATE_EDUCATIONAL_INSTITUTE.getValue());
+	       docTypesModel.setName(DocTypes.DOC_REGISTRATION_CERTIFICATE_EDUCATIONAL_INSTITUTE.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Form 22"
+	salience 750
+	    when
+	      // always true 
+	    then
+	       DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_FORM22.getValue());
+	       docTypesModel.setName(DocTypes.DOC_FORM22.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "ROC"
+	salience 740
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_ROC.getValue());
+	       docTypesModel.setName(DocTypes.DOC_ROC.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "RTA Approval letter"
+	salience 730
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_RTA_APPROVAL_LETTER.getValue());
+	       docTypesModel.setName(DocTypes.DOC_RTA_APPROVAL_LETTER.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Letter of Authorization"
+	salience 720
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_LETTER_OF_AUTHORIZATION.getValue());
+	       docTypesModel.setName(DocTypes.DOC_LETTER_OF_AUTHORIZATION.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Passport"
+	salience 710
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_PASSPORT.getValue());
+	       docTypesModel.setName(DocTypes.DOC_PASSPORT.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Visa Copy"
+	salience 710
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_VISA_COPY.getValue());
+	       docTypesModel.setName(DocTypes.DOC_VISA_COPY.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Copy of Proceedings"
+	salience 700
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_COPY_OF_PROCEEDINGS.getValue());
+	       docTypesModel.setName(DocTypes.DOC_COPY_OF_PROCEEDINGS.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Differently Abled Certificate"
+	salience 690
+	    when
+	     
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_DIFFERENTLY_ABLED_CERTIFICATE.getValue());
+	       docTypesModel.setName(DocTypes.DOC_DIFFERENTLY_ABLED_CERTIFICATE.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Minor Individual"
+	salience 680
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_MINOR_INDIVIDUAL.getValue());
+	       docTypesModel.setName(DocTypes.DOC_MINOR_INDIVIDUAL.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Driving License"
+	salience 670
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_DL.getValue());
+	       docTypesModel.setName(DocTypes.DOC_DL.getLabel());
+	       docTypesModel.setIsMandatory(false);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Form 20 OR DO (Original Copy)"
+	salience 660
+	    when
+	      
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_FORM20DO_COPY.getValue());
+	       docTypesModel.setName(DocTypes.DOC_FORM20DO_COPY.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Helmet Invoice Copy"
+	salience 650
+	    when
+	     
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_HELMET_INVOICE_COPY.getValue());
+	       docTypesModel.setName(DocTypes.DOC_HELMET_INVOICE_COPY.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	
+	rule "Extra Image 1"
+	salience 640
+	    when
+	      // always true 
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_EXTRA_1.getValue());
+	       docTypesModel.setName(DocTypes.DOC_EXTRA_1.getLabel());
+	       docTypesModel.setIsMandatory(false);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Extra Image 2"
+	salience 630
+	    when
+	     // always true 
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_EXTRA_2.getValue());
+	       docTypesModel.setName(DocTypes.DOC_EXTRA_2.getLabel());
+	       docTypesModel.setIsMandatory(false);
+	       docTypeList.add(docTypesModel);
+	end
+	
+	rule "Dealer Signature"
+	salience 610
+	    when
+	      // always true 
+	    then
+	        DocTypesModel docTypesModel = new DocTypesModel();
+	       docTypesModel.setId(DocTypes.DOC_DEALER_SIGNATURE.getValue());
+	       docTypesModel.setName(DocTypes.DOC_DEALER_SIGNATURE.getLabel());
+	       docTypesModel.setIsMandatory(true);
+	       docTypeList.add(docTypesModel);
+	end
